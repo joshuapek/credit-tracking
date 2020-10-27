@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Models\Company;
 use Illuminate\Http\Request;
@@ -16,7 +17,9 @@ class CompanyController extends Controller
     public function index()
     {
         //
-        return view('edit', ['companies' => Company::all()]);
+	$companies = Company::all();
+
+        return view('edit', compact('companies'));
     }
 
     /**

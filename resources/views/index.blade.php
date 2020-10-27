@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                         @forelse($companies as $company)
-                            <tr class="border {{ $loop->iteration%2==1 ? 'bg-gray-500' : 'bg-white-500' }}">
+                            <tr class="border {{ $loop->iteration%2==1 ? 'bg-gray-300' : 'bg-white-500' }}">
                                 <td class="px-4 py-1">{{ strToUpper($company->companyName) }}</td>
                                 @if(trim(strToUpper($company['status'])) == "GREEN") 
                                     <td class="px-4 py-1">
