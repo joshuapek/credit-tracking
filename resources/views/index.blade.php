@@ -35,13 +35,13 @@
                     </thead>
                     <tbody>
                         @forelse($companies as $company)
-                            <tr class="border">
+                            <tr class="border {{ $loop->index%2 ? 'bg-grey-400' : 'bg-white-500' }}">
                                 <td class="px-4 py-1">{{ strToUpper($company->companyName) }}</td>
-                                @if($company['status'] == "GREEN") 
+                                @if({{ trim($company['status']) }} == "GREEN") 
                                     <td class="px-4 py-1">
                                         <div class="rounded-full h-4 w-4 flex bg-green-400 items-center justify-center mx-auto"></div>
                                     </td>
-                                @elseif($company['status'] == "YELLOW") 
+                                @elseif({{ trim($company['status']) }} == "YELLOW") 
                                     <td class="px-4 py-1 bg">
                                         <div class="rounded-full h-4 w-4 flex bg-yellow-300 items-center justify-center mx-auto"></div>
                                     </td>
