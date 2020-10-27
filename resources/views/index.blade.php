@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="refresh" content="10" />
+        <meta http-equiv="refresh" content="600" />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>Credit Tracking</title>
     </head>
@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                         @forelse($companies as $company)
-                            <tr class="border {{ $loop->iteration%2==1 ? 'bg-grey-400' : 'bg-white-500' }}">
+                            <tr class="border {{ $loop->iteration%2==1 ? 'bg-gray-500' : 'bg-white-500' }}">
                                 <td class="px-4 py-1">{{ strToUpper($company->companyName) }}</td>
                                 @if(trim(strToUpper($company['status'])) == "GREEN") 
                                     <td class="px-4 py-1">
