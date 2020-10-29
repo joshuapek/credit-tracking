@@ -22,8 +22,21 @@
             </div>
         @endif -->
         <div class="container mx-auto pt-5">
-            <div>  
+            <div>
                 <table class="table-auto w-full">
+		    <tr>
+			<div class="flex">
+			    <div class="flex flex-1">
+			    	<div class="rounded-full h-4 w-4 flex bg-green-400"></div><div class="flex"><p>OK!</p></div>
+			    </div>
+			    <div class="flex flex-1">
+				<div class="rounded-full h-4 w-4 flex bg-yellow-300"></div><div class="flex"><p>Contact Sales!</p></div>
+			    </div>
+			    <div class="flex flex-1">
+				<div class="rounded-full h-4 w-4 flex bg-red-600"></div><div class="flex"><p>STOP!</p></div>
+			    </div>
+			</div>
+		    </tr>
                     <thead>
                         <tr class="border">
                             <th class="px-4 py-2">Company Name</th>
@@ -34,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($companies->sortBy('companyName') as $company)
+                        @forelse($companies as $company)
                             <tr class="border {{ $loop->iteration%2==1 ? 'bg-gray-300' : 'bg-white-500' }}">
                                 <td class="px-4 py-1">{{ strToUpper($company->companyName) }}</td>
                                 @if(trim(strToUpper($company['status'])) == "GREEN") 
@@ -61,6 +74,7 @@
                         @endforelse
                     </tbody>
                 </table>
+		{!! $companies->render() !!}
             </div>
         </div>
     </body>

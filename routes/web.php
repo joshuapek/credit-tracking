@@ -15,7 +15,8 @@ use App\Models\Company;
 */
 
 Route::get('/', function () {
-    return view('index', ['companies' => Company::all()]);
+    $companies = Company::orderby('companyName')->paginate(150);
+    return view('index', compact('companies'));
 })->name('home');
 
 /* Route::middleware(['auth:sanctum', 'verified'])->get('/edit', function () {
@@ -33,7 +34,7 @@ Route::middleware('auth')->group(function () {
             'update'    =>  'company.update',
             'edit'      =>  'company.edit',
             'destroy'   =>  'company.destroy',
-        ]   
+        ]
     ]);
     //Route::patch('/edit/{id}', 'CompanyController@update')->name('company.update');
 });
